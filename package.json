@@ -1,14 +1,14 @@
 {
-  "name": "vue-layouts",
-  "version": "0.0.1",
+  "name": "vue-extend-layout",
+  "version": "0.0.2",
   "description": "Extend the default layout or create custom layouts for your SPA Vue.js",
-  "main": "dist/vue-layouts.cjs.js",
+  "main": "dist/vue-extend-layout.cjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ktquez/vue-layouts.git"
+    "url": "git+https://github.com/ktquez/vue-extend-layout.git"
   },
   "keywords": [
     "vuejs",
@@ -24,7 +24,7 @@
   "author": "Alan Ktquez <ktquez@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ktquez/vue-layouts/issues"
+    "url": "https://github.com/ktquez/vue-extend-layout/issues"
   },
-  "homepage": "https://github.com/ktquez/vue-layouts#readme"
+  "homepage": "https://github.com/ktquez/vue-extend-layout#readme"
 }
