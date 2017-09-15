@@ -1,0 +1,30 @@
+{
+  "name": "vue-layouts",
+  "version": "0.0.1",
+  "description": "Extend the default layout or create custom layouts for your SPA Vue.js",
+  "main": "dist/vue-layouts.cjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktquez/vue-layouts.git"
+  },
+  "keywords": [
+    "vuejs",
+    "layout",
+    "vue-layout",
+    "nuxt",
+    "spa",
+    "pwa",
+    "vue-router",
+    "choose",
+    "layout"
+  ],
+  "author": "Alan Ktquez <ktquez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ktquez/vue-layouts/issues"
+  },
+  "homepage": "https://github.com/ktquez/vue-layouts#readme"
+}
