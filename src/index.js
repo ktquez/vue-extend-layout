@@ -1,5 +1,6 @@
 import Wrapper from './Layout'
 import layouts from './layouts'
+import { version } from '../package.json'
 import Vue from 'vue'
 
 var installed = false
@@ -19,7 +20,7 @@ export function VueExtendLayout (Vue, options = {}) {
 
   // Register layouts
   layouts().forEach(layout => {
-    Vue.component(layout.default.name, layout.default)
+    Vue.component(layout.name, layout)
   })
 }
 
@@ -39,5 +40,6 @@ export const layout = {
 
 export default {
   VueExtendLayout,
-  layout
+  layout,
+  version
 }

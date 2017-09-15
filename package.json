@@ -1,8 +1,8 @@
 {
   "name": "vue-extend-layout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Extend the default layout or create custom layouts for your SPA Vue.js",
-  "main": "dist/vue-extend-layout.cjs.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
