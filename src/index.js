@@ -7,10 +7,10 @@ var installed = false
 // automatic install
 if (typeof Vue !== 'undefined') {
   // eslint-disable-next-line
-  Vue.use(VuePickLayout)
+  Vue.use(VueExtendLayout)
 }
 
-export function VuePickLayout (Vue, options = {}) {
+export function VueExtendLayout (Vue, options = {}) {
   if (installed) return
   installed = true
 
@@ -38,6 +38,6 @@ export const layout = {
 }
 
 export default {
-  VuePickLayout,
+  VueExtendLayout,
   layout
 }
