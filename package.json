@@ -1,14 +1,14 @@
 {
-  "name": "vue-pick-layout",
+  "name": "vue-layouts",
   "version": "0.0.1",
-  "description": "Choose the layout for each page of your SPA Vue.js",
-  "main": "dist/index.js",
+  "description": "Extend the default layout or create custom layouts for your SPA Vue.js",
+  "main": "dist/vue-layouts.cjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ktquez/vue-pick-layout.git"
+    "url": "git+https://github.com/ktquez/vue-layouts.git"
   },
   "keywords": [
     "vuejs",
@@ -24,7 +24,7 @@
   "author": "Alan Ktquez <ktquez@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ktquez/vue-pick-layout/issues"
+    "url": "https://github.com/ktquez/vue-layouts/issues"
   },
-  "homepage": "https://github.com/ktquez/vue-pick-layout#readme"
+  "homepage": "https://github.com/ktquez/vue-layouts#readme"
 }

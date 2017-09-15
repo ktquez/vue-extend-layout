@@ -18,7 +18,7 @@ export function VuePickLayout (Vue, options = {}) {
   Vue.component('layout', Wrapper)
 
   // Register layouts
-  layouts((options.path || '@/layouts')).forEach(layout => {
+  layouts().forEach(layout => {
     Vue.component(layout.default.name, layout.default)
   })
 }

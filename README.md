@@ -1,5 +1,5 @@
-# vue-pick-layout
-Choose the layout for each page of your SPA
+# vue-layouts
+Extend the default layout or create custom layouts for your SPA Vue.js
 
 ---
 
