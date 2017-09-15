@@ -1,0 +1,30 @@
+{
+  "name": "vue-pick-layout",
+  "version": "0.0.1",
+  "description": "Choose the layout for each page of your SPA Vue.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktquez/vue-pick-layout.git"
+  },
+  "keywords": [
+    "vuejs",
+    "layout",
+    "vue-layout",
+    "nuxt",
+    "spa",
+    "pwa",
+    "vue-router",
+    "choose",
+    "layout"
+  ],
+  "author": "Alan Ktquez <ktquez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ktquez/vue-pick-layout/issues"
+  },
+  "homepage": "https://github.com/ktquez/vue-pick-layout#readme"
+}
