@@ -16,15 +16,9 @@ function layouts() {
   return layouts.keys().map(layouts);
 }
 
-var version = "0.1.4";
+var version = "0.1.5";
 
-var installed = false;
 var _Vue = {};
-
-// Auto install
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VueExtendLayout);
-}
 
 /**
  * Install Plugin vue-extend-layout
@@ -36,8 +30,6 @@ function VueExtendLayout(Vue) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   _Vue = Vue;
-  if (installed) return;
-  installed = true;
 
   // Register component layout
   Vue.component('layout', Wrapper);
