@@ -7,26 +7,33 @@ var Wrapper = { render: function render() {
 /**
  * Retrieve context components to global register on Vue
  * @export
- * @param {String} dirname
  * @return {Array} With layout components
  */
-function layouts(dirname) {
+function layouts() {
   var layouts = require.context('@/layouts', false, /^\.\/.*\.vue$/);
   return layouts.keys().map(layouts);
 }
 
-var version = "0.1.2";
+var version = "0.1.4";
 
 var installed = false;
+var _Vue = {};
 
 // Auto install
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(VueExtendLayout);
 }
 
+/**
+ * Install Plugin vue-extend-layout
+ * 
+ * @param {Vue} Vue 
+ * @param {Object} [options={}] 
+ */
 function VueExtendLayout(Vue) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
+  _Vue = Vue;
   if (installed) return;
   installed = true;
 
@@ -40,25 +47,40 @@ function VueExtendLayout(Vue) {
   });
 }
 
+/**
+ * Compile the layout
+ *
+ * @param {VueComponent} context Vue instance
+ * @returns Compiled Component
+ */
+function layoutCompile(context) {
+  return _Vue.compile('<' + (context.$route.meta.layout || 'default') + ' />');
+}
+
+/**
+ * Render the layout
+ *
+ * @param {VueComponent} context Vue instance
+ * @param {Object} res Compiled Component
+ * @param {Boolean} update To force update component layout
+ */
+function layoutRender(context, res, update) {
+  context.$options.render = res.render;
+  context.$options.staticRenderFns = res.staticRenderFns;
+  if (update) context.$forceUpdate();
+}
+
+/**
+ * Mixed to Vue root instance
+ */
 var layout = {
   beforeCreate: function beforeCreate() {
-    this.layoutRender(this.layoutCompile());
+    layoutRender(this, layoutCompile(this));
   },
 
   watch: {
     '$route': function $route() {
-      this.layoutRender(this.layoutCompile(), true);
-    }
-  },
-  methods: {
-    layoutCompile: function layoutCompile() {
-      if (!Vue) return;
-      return Vue.compile('<' + (this.$route.meta.layout || 'default') + ' />');
-    },
-    layoutRender: function layoutRender(res, update) {
-      this.$options.render = res.render;
-      this.$options.staticRenderFns = res.staticRenderFns;
-      if (update) this.$forceUpdate();
+      layoutRender(this, layoutCompile(this), true);
     }
   }
 };
