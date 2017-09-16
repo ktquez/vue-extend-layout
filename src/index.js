@@ -8,7 +8,10 @@ export function VueExtendLayout (Vue, options = {}) {
   Vue.component('layout', Wrapper)
 
   // Register layouts
-  layouts().forEach(c => Vue.component((c.default.name || c.name), (c.default || c)))
+  layouts().forEach(c => {
+    c = c.default || c
+    Vue.component(c.name, c)
+  })
 }
 
 export const layout = {
