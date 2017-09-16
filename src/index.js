@@ -2,13 +2,7 @@ import Wrapper from './Wrapper.vue'
 import layouts from './layouts'
 import { version } from '../package.json'
 
-var installed = false
 var _Vue = {}
-
-// Auto install
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VueExtendLayout);
-}
 
 /**
  * Install Plugin vue-extend-layout
@@ -18,8 +12,6 @@ if (typeof window !== 'undefined' && window.Vue) {
  */
 export function VueExtendLayout (Vue, options = {}) {
   _Vue = Vue
-  if (installed) return
-  installed = true
   
   // Register component layout
   Vue.component('layout', Wrapper)
