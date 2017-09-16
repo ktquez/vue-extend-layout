@@ -1,6 +1,6 @@
 {
   "name": "vue-extend-layout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Extend the default layout or create custom layouts for your SPA Vue.js",
   "main": "src/index.js",
   "scripts": {
