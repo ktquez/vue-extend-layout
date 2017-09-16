@@ -1,27 +1,14 @@
-import Wrapper from './Layout'
+import Wrapper from './Wrapper'
 import layouts from './layouts'
 import { version } from '../package.json'
 import Vue from 'vue'
 
-var installed = false
-
-// automatic install
-if (typeof Vue !== 'undefined') {
-  // eslint-disable-next-line
-  Vue.use(VueExtendLayout)
-}
-
 export function VueExtendLayout (Vue, options = {}) {
-  if (installed) return
-  installed = true
-
   // Register component layout
   Vue.component('layout', Wrapper)
 
   // Register layouts
-  layouts().forEach(layout => {
-    Vue.component(layout.name, layout)
-  })
+  layouts().forEach(c => Vue.component((c.default.name || c.name), (c.default || c)))
 }
 
 export const layout = {
