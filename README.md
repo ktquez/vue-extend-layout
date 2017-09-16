@@ -135,6 +135,20 @@ And in the route add in the 'meta' object the 'layout' property with the name of
 }
 ```
 
+# Webpack
+In your webpack file check for an alias (@) to the main directory of your application, typically.
+```javascript
+resolve: {
+  extensions: ['.js', '.vue', '.json'],
+  alias: {
+    'vue$': 'vue/dist/vue.esm.js',
+    '@': resolve('src'),
+  }
+}
+```
+
+*The 'vue-extend-layout' uses this alias (@), if it does not have or the main path is another, add that alias (@) to the path that contains the 'layouts' directory you created.*
+
 # Articles and Screencast
 
 - In development
