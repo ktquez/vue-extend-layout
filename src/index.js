@@ -1,34 +1,53 @@
-import Wrapper from './Wrapper'
+import Wrapper from './Wrapper.vue'
 import layouts from './layouts'
 import { version } from '../package.json'
-import Vue from 'vue'
+
+var installed = false
+
+// Auto install
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(VueExtendLayout);
+}
 
 export function VueExtendLayout (Vue, options = {}) {
+  if (installed) return
+  installed = true
+  
   // Register component layout
   Vue.component('layout', Wrapper)
-
+  
   // Register layouts
   layouts().forEach(c => {
     c = c.default || c
     Vue.component(c.name, c)
   })
+  
 }
 
 export const layout = {
   beforeCreate () {
-    let res = Vue.compile(`<${(this.$route.meta.layout || 'default')} />`)
-    this.$options.render = res.render
+    this.layoutRender(this.layoutCompile())
   },
   watch: {
     '$route' () {
-      let res = Vue.compile(`<${(this.$route.meta.layout || 'default')} />`)
+      this.layoutRender(this.layoutCompile(), true)
+    }
+  },
+  methods: {
+    layoutCompile () {
+      if (!Vue) return
+      return Vue.compile(`<${(this.$route.meta.layout || 'default')} />`)
+    },
+
+    layoutRender (res, update) {
       this.$options.render = res.render
-      this.$forceUpdate()
+      this.$options.staticRenderFns = res.staticRenderFns
+      if (update) this.$forceUpdate()
     }
   }
 }
 
-export default {
+module.exports = {
   VueExtendLayout,
   layout,
   version
