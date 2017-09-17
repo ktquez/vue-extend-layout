@@ -12,7 +12,7 @@ function layouts() {
   return layouts.keys().map(layouts);
 }
 
-var version = "1.0.0";
+var version = "1.0.1";
 
 var _Vue = {};
 
