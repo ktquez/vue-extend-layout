@@ -1,4 +1,3 @@
-import Wrapper from './Wrapper.vue'
 import layouts from './layouts'
 import { version } from '../package.json'
 
@@ -12,9 +11,6 @@ var _Vue = {}
  */
 export function VueExtendLayout (Vue, options = {}) {
   _Vue = Vue
-  
-  // Register component layout
-  Vue.component('layout', Wrapper)
   
   // Register layouts
   layouts().forEach(c => {
