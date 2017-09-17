@@ -2,12 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var Wrapper = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('router-view');
-  }, staticRenderFns: [],
-  name: 'VueExtendLayout'
-};
-
 /**
  * Retrieve context components to global register on Vue
  * @export
@@ -18,7 +12,7 @@ function layouts() {
   return layouts.keys().map(layouts);
 }
 
-var version = "0.1.5";
+var version = "1.0.0";
 
 var _Vue = {};
 
@@ -32,9 +26,6 @@ function VueExtendLayout(Vue) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   _Vue = Vue;
-
-  // Register component layout
-  Vue.component('layout', Wrapper);
 
   // Register layouts
   layouts().forEach(function (c) {
