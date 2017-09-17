@@ -1,7 +1,11 @@
 # vue-extend-layout
 Extend the default layout or create custom layouts for your SPA Vue.js
 
----
+## Template vue-cli
+
+If you are going to use layouts in your application, you can choose to use a pre-configured template using vue-cli.
+- [ktquez/layout](https://github.com/ktquez/layout): A full-featured Webpack + Extend layout + vue-loader setup with hot reload, linting, testing & css extraction
+- [ktquez/layout-simple](https://github.com/ktquez/layout-simple): A simple Webpack + Extend layout + + vue-loader setup for quick prototyping
 
 ## Usage
 
