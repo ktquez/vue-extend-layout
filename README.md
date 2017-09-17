@@ -45,7 +45,7 @@ For example:
 ```vue
 <template>
   <div id="app">
-    <layout /> <!-- This component will serve as a wrapper for your pages. -->
+    <router-view />
   </div>
 </template>
 
@@ -75,7 +75,7 @@ For example:
 ```vue
 <template>
   <div>
-    <layout /> <!-- This component will serve as a wrapper for your pages. -->
+    <router-view />
   </div>
 </template>
 
@@ -112,7 +112,7 @@ For example:
 <template>
   <div>
     <h1>PAGE NOT FOUND</h1>
-    <layout /> <!-- Optional -->
+    <router-view /> <!-- Optional -->
   </div>
 </template>
 
