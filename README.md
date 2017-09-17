@@ -81,7 +81,7 @@ For example:
 
 <script>
   export default {
-    name: 'myCustomLayoutLogin' // id of the layout, use "CamelCase" for compound words
+    name: 'myCustomLayoutLogin' // id of the layout
   }
 </script>
 
