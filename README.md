@@ -45,7 +45,12 @@ For example:
 ```vue
 <template>
   <div id="app">
-    <router-view />
+    <header />
+    <sidebar />
+    <div class="container">
+      <router-view />
+    </div>
+    <footer />
   </div>
 </template>
 
@@ -75,7 +80,10 @@ For example:
 ```vue
 <template>
   <div>
-    <router-view />
+    <header-login />
+    <div class="container-login">
+      <router-view />
+    </div>
   </div>
 </template>
 
