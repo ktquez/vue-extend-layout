@@ -75,7 +75,7 @@ For example:
 To create a layout you just need to create a component within the layouts directory and name that component.  
 
 For example:
-`layouts/myCustomLayoutLogin.vue`
+`layouts/MyCustomLayoutLogin.vue`
 
 ```vue
 <template>
@@ -89,7 +89,7 @@ For example:
 
 <script>
   export default {
-    name: 'myCustomLayoutLogin' // id of the layout
+    name: 'MyCustomLayoutLogin' // id of the layout
   }
 </script>
 
@@ -98,19 +98,19 @@ For example:
 </style>
 ```
 
-And to extend this layout in any the desired route, simply include the property `layout: myCustomLayoutLogin` in meta object of the route.
+And to extend this layout in any the desired route, simply include the property `layout: MyCustomLayoutLogin` in meta object of the route.
 ```javascript
 {
   path: '/login',
   name: 'Login',
   component: () => import('@/pages/Login'),
   meta: {
-    layout: 'myCustomLayoutLogin' // name of the layout
+    layout: 'MyCustomLayoutLogin' // name of the layout
   }
 }
 ```
 
-**Attention: The value of the `layout` property must be the same as the name of the `myCustomLayoutLogin` component.**
+**Attention: The value of the `layout` property must be the same as the name of the `MyCustomLayoutLogin` component.**
 
 # Create a error layout (Optional)
 For example:
