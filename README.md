@@ -30,7 +30,6 @@ new Vue({
   ...layout // Add methods to extend layouts
 })
 
-...
 ```
 
 **Attention: From now on, `App.vue` will no longer be your primary file**
