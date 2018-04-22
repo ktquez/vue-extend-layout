@@ -146,6 +146,12 @@ And in the route add in the 'meta' object the 'layout' property with the name of
 }
 ```
 
+# Transitions
+For transitions you can use the [Vueg](https://github.com/jaweii/vueg) plugin and make your transitions between routes with amazing effects.
+
+Suggestion from [@sorxrob](https://github.com/sorxrob) - [#1](https://github.com/ktquez/vue-extend-layout/issues/1#issuecomment-370220929)
+
+
 # Webpack
 In your webpack file check for an alias (@) to the main directory of your application, typically.
 ```javascript
