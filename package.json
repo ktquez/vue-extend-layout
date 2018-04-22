@@ -4,8 +4,9 @@
   "description": "Extend the default layout or create custom layouts for your SPA Vue.js",
   "main": "dist/vue-extend-layout.cjs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "rollup -c"
+    "dist": "rollup -c",
+    "release": "standard-version",
+    "publish": "git push --follow-tags origin master && npm publish"
   },
   "repository": {
     "type": "git",
@@ -40,10 +41,9 @@
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
-    "rollup-plugin-uglify": "^2.0.1",
     "rollup-plugin-vue": "^2.4.1",
     "rollup-plugin-vue2": "^0.8.0",
-    "uglify-js": "github:mishoo/UglifyJS2#harmony-v2.8.0"
+    "standard-version": "^4.3.0"
   },
   "dependencies": {
     "vue": "^2.4.4"
