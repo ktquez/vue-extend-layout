@@ -1,4 +1,6 @@
 # vue-extend-layout
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ktquez/vue-extend-layout.svg)](https://greenkeeper.io/)
 Extend the default layout or create custom layouts for your SPA Vue.js
 
 ## Template vue-cli
