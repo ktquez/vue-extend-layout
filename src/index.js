@@ -1,46 +1,49 @@
 import layouts from './layouts'
-import { version } from '../package.json'
+import { OPTIONS } from './constants'
 
-var _Vue = {}
+let _Vue = {}
+let _options = {}
+let _hasLoaded = false
 
 /**
  * Install Plugin vue-extend-layout
- * 
- * @param {Vue} Vue 
- * @param {Object} [options={}] 
+ *
+ * @param {Vue} Vue
+ * @param {Object} [options={}]
  */
 export function VueExtendLayout (Vue, options = {}) {
   _Vue = Vue
-  
+  _options = {...OPTIONS, ...options}
+
   // Register layouts
   layouts().forEach(c => {
     c = c.default || c
-    Vue.component(c.name, c)
+    Vue.component(`${_options.prefix}-${c.name}`, c)
   })
-  
 }
 
 /**
  * Compile the layout
  *
- * @param {VueComponent} context Vue instance
  * @returns Compiled Component
  */
-function layoutCompile (context) {
-  return _Vue.compile(`<${(context.$route.meta.layout || 'default')} />`)
+function layoutCompile (layout) {
+  return _Vue.compile(`<${_options.prefix}-${layout} />`)
 }
 
 /**
  * Render the layout
  *
- * @param {VueComponent} context Vue instance
  * @param {Object} res Compiled Component
  * @param {Boolean} update To force update component layout
  */
-function layoutRender (context, res, update) {
-  context.$options.render = res.render
-  context.$options.staticRenderFns = res.staticRenderFns
-  if (update) context.$forceUpdate()
+function layoutRender (res, update) {
+  this.$options.render = res.render
+  this.$options.staticRenderFns = res.staticRenderFns
+  if (update) {
+    this.$forceUpdate()
+    _hasLoaded = true
+  }
 }
 
 /**
@@ -48,17 +51,19 @@ function layoutRender (context, res, update) {
  */
 export const layout = {
   beforeCreate () {
-    layoutRender(this, layoutCompile(this))
+    if (!_options.loader) return
+    setTimeout(() => {
+      layoutRender.call(this, layoutCompile(_options.loader), !_hasLoaded)
+    }, 2000)
   },
   watch: {
     '$route' () {
-      layoutRender(this, layoutCompile(this), true)
+      layoutRender.call(this, layoutCompile(this.$route.meta.layout || _options.default), true)
     }
   }
 }
 
-module.exports = {
+export default {
   VueExtendLayout,
-  layout,
-  version
+  layout
 }
