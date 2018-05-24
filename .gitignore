@@ -1,2 +1,8 @@
 node_modules/
 *.log
+.editorconfig
+example/dist
+example/CNAME
+example/node_modules
+example/package-lock.json
+example/vue-extend-layout.js
