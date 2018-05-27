@@ -1,12 +1,6 @@
 # vue-extend-layout
 Extend the default layout or create custom layouts for your SPA Vue.js
 
-## Template vue-cli
-
-If you are going to use layouts in your application, you can choose to use a pre-configured template using vue-cli.
-- [ktquez/layout](https://github.com/ktquez/layout): A full-featured Webpack + Extend layout + vue-loader setup with hot reload, linting, testing & css extraction
-- [ktquez/layout-simple](https://github.com/ktquez/layout-simple): A simple Webpack + Extend layout + + vue-loader setup for quick prototyping
-
 ## Usage
 
 **NPM**
@@ -35,12 +29,14 @@ new Vue({
 **Attention: From now on, `App.vue` will no longer be your primary file**
 
 ## Create and Using layouts
-You need to create the `src/layouts/default.vue` layout because it will be the main file of your application.
+Rename your App.vue and copy or create a new file named default.vue to src/layouts/default.vue the layout folder, because it will be the main file of your application.
+
 - Create a directory called `layouts/` inside the main directory of your application, usually it will be from `src/layouts/`
+
 - Inside the layout directory create a layout called `default.vue`  
 
-For example:
-
+For example:  
+`src/layouts/default.vue`
 ```vue
 <template>
   <div id="app">
@@ -145,6 +141,22 @@ And in the route add in the 'meta' object the 'layout' property with the name of
   }
 }
 ```
+
+# Options
+Suggestion from [@ggedde](https://github.com/ggedde)
+
+It is now possible to:  
+- Modify the name of the main layout, which is usually "default";
+- Add a prefix, avoiding conflict between the components of the layout and its application;
+- And for pages that need to load ajax requests and that take a moment to load, you can define a custom layout for a loading effect
+
+Option          | Data Type    | Default 
+--------------- | ------------ | ---------
+`layoutDefault` | String       | default
+`prefix`        | String       | layout 
+`loader`        | String, null | null 
+
+**Note: All are optional**
 
 # Transitions
 For transitions you can use the [Vueg](https://github.com/jaweii/vueg) plugin and make your transitions between routes with amazing effects.
