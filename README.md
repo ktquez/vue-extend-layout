@@ -148,7 +148,7 @@ Suggestion from [@ggedde](https://github.com/ggedde)
 It is now possible to:  
 - Modify the name of the main layout, which is usually "default";
 - Add a prefix, avoiding conflict between the components of the layout and its application;
-- And for pages that need to load ajax requests and that take a moment to load, you can define a custom layout for a loading effect
+- And for pages that need to load ajax requests and that take a moment to load, you can define a custom layout for a loading effect. Working only reloaded page;
 
 Option          | Data Type    | Default 
 --------------- | ------------ | ---------
