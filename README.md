@@ -156,6 +156,20 @@ Option          | Data Type    | Default
 `prefix`        | String       | layout 
 `loader`        | String, null | null 
 
+
+e.g.:  
+```javascript
+//...
+
+Vue.use(VueExtendLayout, {
+  layoutDefault: 'App',
+  prefix: 'foo',
+  loader: 'LayoutLoading'
+})
+
+//...
+```
+
 **Note: All are optional**
 
 # Transitions
