@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <h2>Contact Page</h2>
+    <h2 data-vel="header-contact">Contact Page</h2>
     <router-link to="/about" title="Go to about page" aria-label="Go to about page">About</router-link>
   </div>
 </template>

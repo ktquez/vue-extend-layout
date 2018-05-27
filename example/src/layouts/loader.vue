@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1>
-      LOading...
+    <h1 data-vel="header-loader">
+      Loading...
     </h1>
   </div>
 </template>
