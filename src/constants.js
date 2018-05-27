@@ -1,6 +1,5 @@
 export const OPTIONS = {
   loader: null,
-  default: 'default',
-  dir: 'layouts',
+  layoutDefault: 'default',
   prefix: 'layout'
 }

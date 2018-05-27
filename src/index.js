@@ -58,12 +58,7 @@ export const layout = {
   },
   watch: {
     '$route' () {
-      layoutRender.call(this, layoutCompile(this.$route.meta.layout || _options.default), true)
+      layoutRender.call(this, layoutCompile(this.$route.meta.layout || _options.layoutDefault), true)
     }
   }
-}
-
-export default {
-  VueExtendLayout,
-  layout
 }
