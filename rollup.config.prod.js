@@ -4,7 +4,7 @@ import VueLoader from 'rollup-plugin-vue'
 import butternut from 'rollup-plugin-butternut'
 
 export default {
-  entry: 'src/index.js',
+  input: 'src/index.js',
   plugins: [
     VueLoader(),
     babel(),
@@ -15,17 +15,17 @@ export default {
       browser: true
     })
   ],
-  targets: [
+  output: [
     {
-      dest: 'dist/vue-extend-layout.cjs.js',
+      file: 'dist/vue-extend-layout.cjs.js',
       format: 'cjs'
     },
     {
-      dest: 'dist/vue-extend-layout.es.js',
+      file: 'dist/vue-extend-layout.es.js',
       format: 'es'
     },
     {
-      dest: 'dist/vue-extend-layout.amd.js',
+      file: 'dist/vue-extend-layout.amd.js',
       format: 'amd'
     },
     {
