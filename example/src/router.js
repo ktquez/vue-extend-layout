@@ -17,11 +17,18 @@ const router = new VueRouter({
     {
       name: 'about',
       path: '/about',
-      component: () => System.import(/*  webpackChunkName: "About" */ '@/pages/About'),
+      component: () => System.import(/*  webpackChunkName: "About" */ '@/pages/About/index'),
       meta: {
         layout: 'about',
         announcer: 'About page'
-      }
+      },
+      children: [
+        {
+          name: 'about.workers',
+          path: '/workers',
+          component: () => System.import(/*  webpackChunkName: "User" */ '@/pages/About/Workers')
+        }
+      ]
     },
     {
       name: 'contact',
