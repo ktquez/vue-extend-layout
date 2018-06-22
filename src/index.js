@@ -58,7 +58,11 @@ export const layout = {
   },
   watch: {
     '$route' () {
-      layoutRender.call(this, layoutCompile(this.$route.meta.layout || _options.layoutDefault), true)
+      let layout = _options.layoutDefault
+      if (this.$route.matched[0] && this.$route.matched[0].meta.layout) {
+        layout = this.$route.matched[0].meta.layout
+      }
+      layoutRender.call(this, layoutCompile(layout), true)
     }
   }
 }
