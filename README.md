@@ -192,6 +192,21 @@ resolve: {
 
 *The 'vue-extend-layout' uses this alias (@), if it does not have or the main path is another, add that alias (@) to the path that contains the 'layouts' directory you created.*
 
+# vue-cli 3.0*
+In your `vue-config.js`, add vue file runtime + compiler
+
+```
+module.exports = {
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      config.resolve.alias.vue$ = 'vue/dist/vue.min.js'
+    } else {
+      config.resolve.alias.vue$ = 'vue/dist/vue.js'
+    }
+  }
+}
+```
+
 # Articles and Screencast
 
 - In development
