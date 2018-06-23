@@ -51,13 +51,25 @@ function layoutRender (res, update) {
  */
 export const layout = {
   beforeCreate () {
-    if (!_options.loader) return
+    if (!_options.loader) {
+      _hasLoaded = true
+      return
+    }
     setTimeout(() => {
       layoutRender.call(this, layoutCompile(_options.loader), !_hasLoaded)
     }, 2000)
   },
+
+  created () {
+    if (_hasLoaded) this.velRender()
+  },
+
   watch: {
-    '$route' () {
+    '$route': 'velRender'
+  },
+
+  methods: {
+    velRender () {
       let layout = _options.layoutDefault
       if (this.$route.matched[0] && this.$route.matched[0].meta.layout) {
         layout = this.$route.matched[0].meta.layout
