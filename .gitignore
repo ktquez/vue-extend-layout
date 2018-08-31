@@ -1,6 +1,7 @@
 node_modules/
 *.log
 .editorconfig
+package-lock.json
 example/dist
 example/CNAME
 example/node_modules
