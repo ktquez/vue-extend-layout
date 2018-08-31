@@ -1,45 +1,33 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
+import Home from './views/Home.vue'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const router = new VueRouter({
+export default new Router({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes: [
     {
-      name: 'home',
       path: '/',
-      component: () => System.import(/* webpackChunkName: "Home" */ '@/pages/Home'),
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
       meta: {
-        announcer: 'Home page'
+        layout: 'page'
       }
     },
     {
-      name: 'about',
-      path: '/about',
-      component: () => System.import(/*  webpackChunkName: "About" */ '@/pages/About/index'),
-      meta: {
-        layout: 'about',
-        announcer: 'About page'
-      },
-      children: [
-        {
-          name: 'about.workers',
-          path: '/workers',
-          component: () => System.import(/*  webpackChunkName: "User" */ '@/pages/About/Workers')
-        }
-      ]
-    },
-    {
-      name: 'contact',
       path: '/contact',
-      component: () => System.import(/*  webpackChunkName: "Contact" */ '@/pages/Contact'),
+      name: 'contact',
+      component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue'),
       meta: {
-        layout: 'contact',
-        announcer: 'Contact page'
+        layout: 'page'
       }
     }
   ]
 })
-
-export default router

@@ -1,15 +1,10 @@
 import Vue from 'vue'
-import router from './router.js'
-import { VueExtendLayout, layout } from '../vue-extend-layout'
+import App from './App.vue'
+import router from './router'
 
-Vue.use(VueExtendLayout, {
-  loader: 'loader'
-})
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  ...layout
-})
+  render: h => h(App)
+}).$mount('#app')
