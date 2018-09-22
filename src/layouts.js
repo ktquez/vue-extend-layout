@@ -1,9 +1,14 @@
+import { OPTIONS } from './constants'
+
 /**
  * Retrieve context components to global register on Vue
  * @export
  * @return {Array} With layout components
  */
 export default function layouts () {
-  const layouts = require.context('@/layouts', false, /^\.\/.*\.vue$/)
+
+  let layoutPath = '@/'+OPTIONS.layoutDefault
+
+  const layouts = require.context(layoutPath, false, /^\.\/.*\.vue$/)
   return layouts.keys().map(layouts)
 }
