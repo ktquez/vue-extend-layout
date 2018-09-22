@@ -7,7 +7,7 @@ import { OPTIONS } from './constants'
  */
 export default function layouts () {
 
-  let layoutPath = '@/'+OPTIONS.layoutDefault
+  let layoutPath = '@/'+OPTIONS.layoutDefaultPath
 
   const layouts = require.context(layoutPath, false, /^\.\/.*\.vue$/)
   return layouts.keys().map(layouts)
