@@ -1,7 +1,7 @@
-# vue-extend-layout
-A simple extend the default layout or create custom layouts for your SPA Vue.js, using dynamic import component with support vue-cli 3  
+# vue-extend-layout 2.0
+A simple extend the default layout or create custom layouts for your SPA Vue.js, using dynamic import component with **support vue-cli v3**  
 
-> Support Vue-cli 3.0
+> For vue-extend-layout version 1.* you can access [this link](https://github.com/ktquez/vue-extend-layout/tree/v1.1.3)
 
 ## Install
 
@@ -25,7 +25,7 @@ For example:
 `src/layouts/default.vue`
 ```vue
 <template>
-  <div id="app">
+  <div>
     <header />
     <sidebar />
     <div class="container">
@@ -65,7 +65,32 @@ export default {
 </script>
 ```
 
-# Custom extend layout
+## Defining the directory path of layouts
+
+Prop       | Data Type  | required  | Description
+---------- | ---------- | --------- | -----------
+`path`     | String     | false     | The layout directory path without a slash at the end
+
+```vue
+<template>
+  <div id="app">
+    <vue-extend-layouts path="views/wrappers" />
+  </div>
+</template>
+
+<script>
+import VueExtendLayouts from 'vue-extend-layout'
+
+export default {
+  name: 'App',
+  components: { VueExtendLayouts }
+}
+</script>
+```
+
+In this example the layouts will be in `src/views/wrappers`
+
+## Custom extend layout
 To create a layout you just need to create a component within the layouts directory and name that component.  
 
 For example:
