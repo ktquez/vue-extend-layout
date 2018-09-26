@@ -8,7 +8,7 @@
     "test": "node_modules/.bin/cypress run",
     "test:open": "node_modules/.bin/cypress open",
     "pub": "git push --follow-tags origin master && npm publish",
-    "pubDemo": "surge example"
+    "pubDemo": "surge example/dist vue-layouts2.surge.sh"
   },
   "repository": {
     "type": "git",
