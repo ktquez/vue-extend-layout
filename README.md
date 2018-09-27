@@ -65,31 +65,6 @@ export default {
 </script>
 ```
 
-## Defining the directory path of layouts
-
-Prop       | Data Type  | required  | Description
----------- | ---------- | --------- | -----------
-`path`     | String     | false     | The layout directory path without a slash at the end
-
-```vue
-<template>
-  <div id="app">
-    <vue-extend-layouts path="views/wrappers" />
-  </div>
-</template>
-
-<script>
-import VueExtendLayouts from 'vue-extend-layout'
-
-export default {
-  name: 'App',
-  components: { VueExtendLayouts }
-}
-</script>
-```
-
-In this example the layouts will be in `src/views/wrappers`
-
 ## Custom extend layout
 To create a layout you just need to create a component within the layouts directory and name that component.  
 
@@ -163,6 +138,31 @@ And in the route add in the 'meta' object the 'layout' property with the name of
   }
 }
 ```
+
+## Defining the directory path of layouts
+
+Prop       | Data Type  | default    | Description
+---------- | ---------- | ---------- | -----------
+`path`     | String     | `layout`   | The layout directory path without a slash at the end
+
+```vue
+<template>
+  <div id="app">
+    <vue-extend-layouts path="views/layouts" />
+  </div>
+</template>
+
+<script>
+import VueExtendLayouts from 'vue-extend-layout'
+
+export default {
+  name: 'App',
+  components: { VueExtendLayouts }
+}
+</script>
+```
+
+In this example the layouts will be in `src/views/layouts`
 
 # Contributing
 
