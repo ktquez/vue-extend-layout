@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-extend-layouts path="views/wrappers" />
+    <vue-extend-layouts />
   </div>
 </template>
 
