@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1 data-vel="header">This layout is PAGE</h1>
+      <h1 data-vel="header">{{ title }}</h1>
       <navigation />
     </header>
     <router-view/>
@@ -13,6 +13,12 @@ import Navigation from '@/components/Navigation'
 
 export default {
   name: 'pageLayout',
-  components: { Navigation }
+  components: { Navigation },
+
+  data () {
+    return {
+      title: 'This layout is PAGE'
+    }
+  }
 }
 </script>

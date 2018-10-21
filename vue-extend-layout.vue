@@ -7,20 +7,36 @@ export default {
   name: 'VueExtendLayout2',
 
   props: {
-    layout: {
-      type: String,
-      default: 'default'
-    },
-
+    layout: { type: String },
     path: {
       type: String,
       default: 'layouts'
     }
   },
 
+  data () {
+    return {
+      p_layout: null,
+      hasLoaded: false
+    }
+  },
+
+  create () {
+    this.p_layout = this.layout
+  },
+
+  watch: {
+    '$route' () {
+      if (this.hasLoaded) return
+      this.p_layout = this.$route.meta.layout
+    }
+  },
+
   computed: {
     currentLayout () {
-      const layout = this.$route.meta.layout || this.layout
+      if (!this.$route.meta.layout && !this.$route.name) return
+      const layout = this.p_layout || this.$route.meta.layout || 'default'
+      this.hasLoaded = true
       return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${layout}.vue`)
     }
   }
