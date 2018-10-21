@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/ktquez/vue-extend-layout/compare/v2.0.0...v2.0.1) (2018-10-21)
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/ktquez/vue-extend-layout/compare/v1.1.2...v1.1.3) (2018-06-23)
 
