@@ -22,17 +22,6 @@ export default {
     }
   },
 
-  create () {
-    this.p_layout = this.layout
-  },
-
-  watch: {
-    '$route' () {
-      if (this.hasLoaded) return
-      this.p_layout = this.$route.meta.layout
-    }
-  },
-
   computed: {
     currentLayout () {
       if (this.hasLoaded) return this.moduleLayout
@@ -42,6 +31,17 @@ export default {
       this.moduleLayout = () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${layout}.vue`)
       return this.moduleLayout
     }
+  },
+
+  watch: {
+    '$route' () {
+      if (this.hasLoaded) return
+      this.p_layout = this.$route.meta.layout
+    }
+  },
+
+  create () {
+    this.p_layout = this.layout
   }
 }
 </script>
