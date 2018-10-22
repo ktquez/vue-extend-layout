@@ -17,6 +17,7 @@ export default {
   data () {
     return {
       p_layout: null,
+      moduleLayout: null,
       hasLoaded: false
     }
   },
@@ -34,10 +35,12 @@ export default {
 
   computed: {
     currentLayout () {
+      if (this.hasLoaded) return this.moduleLayout
       if (!this.$route.meta.layout && !this.$route.name) return
       const layout = this.p_layout || this.$route.meta.layout || 'default'
       this.hasLoaded = true
-      return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${layout}.vue`)
+      this.moduleLayout = () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${layout}.vue`)
+      return this.moduleLayout
     }
   }
 }
