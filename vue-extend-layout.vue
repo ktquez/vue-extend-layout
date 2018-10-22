@@ -40,7 +40,7 @@ export default {
     }
   },
 
-  create () {
+  created () {
     this.p_layout = this.layout
   }
 }
