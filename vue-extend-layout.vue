@@ -1,51 +1,42 @@
 <template>
-  <component :is="currentLayout" />
+  <component :is="currentLayout"/>
 </template>
 
 <script>
 export default {
-  name: 'VueExtendLayout2',
+  name: "VueExtendLayout2",
 
   props: {
-    layout: { type: String },
+    layout: { type: String, default: "default" },
     path: {
       type: String,
-      default: 'layouts'
+      default: "layouts"
     }
   },
 
-  data () {
+  data() {
     return {
-      p_layout: null,
-      moduleLayout: null,
-      hasLoaded: false
+      layoutName: 'default'
+    };
+  },
+
+  watch: {
+    "$route.meta.layout": {
+      immediate: true,
+      handler(newLayout) {
+        if (!newLayout && !this.$route.name) { this.layoutName = null; return; }
+        if (!newLayout) { this.layoutName = this.layout || "default"; return; }
+        this.layoutName = newLayout;
+      }
     }
   },
 
   computed: {
-    currentLayout () {
-      if (this.hasLoaded) return this.moduleLayout
-      if (this.isDefault) return
-      const layout = this.p_layout || this.$route.meta.layout || 'default'
-      this.hasLoaded = true
-      this.moduleLayout = () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${layout}.vue`)
-      return this.moduleLayout
-    },
-
-    isDefault () {
-      return !this.$route.meta.layout && !this.$route.name
+    currentLayout() {
+      if (!this.layoutName) return
+      const ln = this.layoutName;
+      return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${ln}.vue`);
     }
-  },
-
-  watch: {
-    '$route' () {
-      if (this.hasLoaded) return
-      this.p_layout = this.$route.meta.layout
-    }
-  },
-
-  created () {
-    this.p_layout = this.layout
   }
-}
+};
 </script>
