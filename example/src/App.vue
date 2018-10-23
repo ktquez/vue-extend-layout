@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-extend-layouts />
+    <vue-extend-layouts loading="loading" />
   </div>
 </template>
 

@@ -164,6 +164,33 @@ export default {
 
 In this example the layouts will be in `src/views/layouts`
 
+# Loading layout 
+
+For pages that need to load ajax requests and that take a moment to load, you can define a custom layout for a loading effect. Working only reloaded page;
+
+Prop       | Data Type  | default  | Description
+---------- | ---------- | -------- | -----------
+`loading`  | String     | `null`   | Set the loading layout for late routes
+
+```vue
+<template>
+  <div id="app">
+    <vue-extend-layouts loading="loading" />
+  </div>
+</template>
+
+<script>
+import VueExtendLayouts from 'vue-extend-layout'
+
+export default {
+  name: 'App',
+  components: { VueExtendLayouts }
+}
+</script>
+```
+
+> See example: https://vue-layouts2.surge.sh/contact
+
 # Contributing
 
 - Check the open issues or open a new issue to start a discussion around your feature idea or the bug you found.

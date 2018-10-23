@@ -20,6 +20,10 @@ describe('Vue Layout with delay', () => {
     cy.visit('/contact')
   })
 
+  it('Must show loading layout', () => {
+    cy.get('h1[data-vel="header"]').contains('Loading...')
+  })
+
   it('Must show the title of the contact page after 6 seconds of delay', () => {
     cy.get('h2[data-vel="subheader"]', {timeout: 6000}).contains('This is an contact page')
   })

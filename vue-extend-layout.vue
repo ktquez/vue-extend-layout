@@ -4,39 +4,46 @@
 
 <script>
 export default {
-  name: "VueExtendLayout2",
+  name: 'VueExtendLayout2',
 
   props: {
-    layout: { type: String, default: "default" },
+    layout: {
+      type: String,
+      default: 'default'
+    },
+    loading: {
+      type: String,
+      default: null
+    },
     path: {
       type: String,
-      default: "layouts"
+      default: 'layouts'
     }
   },
 
-  data() {
+  data () {
     return {
       layoutName: 'default'
-    };
+    }
   },
 
   watch: {
-    "$route.meta.layout": {
+    '$route.meta.layout': {
       immediate: true,
-      handler(newLayout) {
-        if (!newLayout && !this.$route.name) { this.layoutName = null; return; }
-        if (!newLayout) { this.layoutName = this.layout || "default"; return; }
-        this.layoutName = newLayout;
+      handler (newLayout) {
+        if (!newLayout && !this.$route.name) { this.layoutName = this.loading; return }
+        if (!newLayout) { this.layoutName = this.layout || 'default'; return }
+        this.layoutName = newLayout
       }
     }
   },
 
   computed: {
-    currentLayout() {
+    currentLayout () {
       if (!this.layoutName) return
-      const ln = this.layoutName;
-      return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${ln}.vue`);
+      const ln = this.layoutName
+      return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${ln}.vue`)
     }
   }
-};
+}
 </script>
