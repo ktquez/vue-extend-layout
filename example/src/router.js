@@ -28,6 +28,13 @@ export default new Router({
       meta: {
         layout: 'page'
       }
+    },
+    {
+      path: '*',
+      name: 'Error',
+      meta: {
+        layout: 'error'
+      }
     }
   ]
 })
