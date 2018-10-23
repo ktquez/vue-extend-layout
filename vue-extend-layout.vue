@@ -15,6 +15,10 @@ export default {
       type: String,
       default: null
     },
+    prefix: {
+      type: String,
+      default: ''
+    },
     path: {
       type: String,
       default: 'layouts'
@@ -41,7 +45,7 @@ export default {
   computed: {
     currentLayout () {
       if (!this.layoutName) return
-      const ln = this.layoutName
+      const ln = this.prefix + this.layoutName
       return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${ln}.vue`)
     }
   }

@@ -191,6 +191,37 @@ export default {
 
 > See example: https://vue-layouts2.surge.sh/contact
 
+# Layout prefix
+
+Add a prefix, avoiding conflict between the components of the layout and its application.
+
+It also gives you the ability to load layouts according to the user's choices and seasonality, such as loading layouts on commemorative dates, using a new or modified version of the application, internationalization defining a layout template for a particular country, and so on.
+
+Prop       | Data Type  | default  | Description
+---------- | ---------- | -------- | -----------
+`prefix`   | String     |          | Set the layout prefix
+
+```vue
+<template>
+  <div id="app">
+    <vue-extend-layouts prefix="old-" />
+  </div>
+</template>
+
+<script>
+import VueExtendLayouts from 'vue-extend-layout'
+
+export default {
+  name: 'App',
+  components: { VueExtendLayouts }
+}
+</script>
+```
+
+**For example, if the layout is `default.vue` and you add the prefix `old-` the webpack will load the `old-default.vue` layout**
+
+> Example coming soon
+
 # Contributing
 
 - Check the open issues or open a new issue to start a discussion around your feature idea or the bug you found.
