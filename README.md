@@ -26,12 +26,12 @@ For example:
 ```vue
 <template>
   <div>
-    <header />
-    <sidebar />
+    <YourHeader />
+    <YourSidebar />
     <div class="container">
       <router-view />
     </div>
-    <footer />
+    <YourFooter />
   </div>
 </template>
 
@@ -164,9 +164,11 @@ export default {
 
 In this example the layouts will be in `src/views/layouts`
 
-# Loading layout 
+# Loading layout
 
 For pages that need to load ajax requests and that take a moment to load, you can define a custom layout for a loading effect. Working only reloaded page;
+
+**Attn: Only works when the page refreshes.**
 
 Prop       | Data Type  | default  | Description
 ---------- | ---------- | -------- | -----------
@@ -188,6 +190,8 @@ export default {
 }
 </script>
 ```
+
+**In the above example, the webpack will load the layout `loading.vue`**
 
 > See example: https://vue-layouts2.surge.sh/contact
 
