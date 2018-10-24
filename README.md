@@ -1,9 +1,20 @@
-# vue-extend-layout 2.0
-A simple extend the default layout or create custom layouts for your SPA Vue.js, using dynamic import component with **support vue-cli v3**  
+# vue-extend-layout
+A simple extend the default layout or create custom layouts for your SPA Vue.js, using dynamic import component.
 
 > For vue-extend-layout version 1.* you can access [this link](https://github.com/ktquez/vue-extend-layout/tree/v1.1.3)
 
-## Install
+## [vue-cli-plugin-layouts](https://github.com/ktquez/vue-cli-plugin-layouts) (vue-cli 3)
+You can easily add the vue-extend-layout in your vue-cli 3 project.
+
+```shell
+vue add layouts
+```
+
+You will be asked if you want the plugin to configure the component for you automatically, if you accept, the plugin will create the default layout in the `src/layouts/default.vue` directory and will convert your `App.vue` into a *wrapper* for the layouts, similar to this example (https://github.com/ktquez/vue-extend-layout#in-your-appvue)
+
+---
+
+## Others installations
 
 **NPM**
 ```shell
@@ -14,6 +25,7 @@ npm install vue-extend-layout --save
 ```shell
 yarn add vue-extend-layout
 ```
+
 
 ## Create and Using layouts
 
