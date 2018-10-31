@@ -32,9 +32,10 @@ export default {
   },
 
   watch: {
-    '$route.meta.layout': {
+    '$route': {
       immediate: true,
-      handler (newLayout) {
+      handler (route) {
+        const newLayout = route.meta.layout
         if (!newLayout && !this.$route.name) { this.layoutName = this.loading; return }
         if (!newLayout) { this.layoutName = this.layout || 'default'; return }
         this.layoutName = newLayout
