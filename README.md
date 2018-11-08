@@ -153,9 +153,9 @@ And in the route add in the 'meta' object the 'layout' property with the name of
 
 ## Defining the directory path of layouts
 
-Prop       | Data Type  | default    | Description
----------- | ---------- | ---------- | -----------
-`path`     | String     | `layout`   | The layout directory path without a slash at the end
+Prop       | Data Type  | default     | Description
+---------- | ---------- | ----------  | -----------
+`path`     | String     | `layouts`   | The layout directory path without a slash at the end
 
 ```vue
 <template>
