@@ -23,10 +23,6 @@ export default {
       type: String,
       default: 'layouts'
     },
-    pathAlias: {
-      type: String,
-      default: '@'
-    }
   },
 
   data () {
@@ -51,7 +47,7 @@ export default {
     currentLayout () {
       if (!this.layoutName) return
       const ln = this.prefix + this.layoutName
-      return () => import(/* webpackChunkName: "layout-[request]" */ `${this.pathAlias}/${this.path}/${ln}.vue`)
+      return () => import(/* webpackChunkName: "layout-[request]" */ `${process.env.VUE_APP_SRC_ALIAS || '@'}/${this.path}/${ln}.vue`)
     }
   }
 }
