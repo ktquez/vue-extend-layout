@@ -22,7 +22,7 @@ export default {
     path: {
       type: String,
       default: 'layouts'
-    }
+    },
   },
 
   data () {
@@ -47,7 +47,7 @@ export default {
     currentLayout () {
       if (!this.layoutName) return
       const ln = this.prefix + this.layoutName
-      return () => import(/* webpackChunkName: "layout-[request]" */ `@/${this.path}/${ln}.vue`)
+      return () => import(/* webpackChunkName: "layout-[request]" */ `${process.env.VUE_APP_SRC_ALIAS}/${this.path}/${ln}.vue`)
     }
   }
 }
